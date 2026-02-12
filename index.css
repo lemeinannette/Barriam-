@@ -1,12 +1,4 @@
-/* ========================================
-   BARRIAM ELECTRICALS - Modern CSS Design
-   Industrial Power & Energy Theme
-   Version 2.0 - Enhanced Edition
-   ======================================== */
 
-/* ========================================
-   CSS CUSTOM PROPERTIES (Design Tokens)
-   ======================================== */
 :root {
     /* Primary Colors - Electric Energy Theme */
     --color-primary: #F59E0B;
@@ -142,9 +134,9 @@
     --container-2xl: 1400px;
 }
 
-/* ========================================
+/* 
    RESET & BASE STYLES
-   ======================================== */
+    */
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -219,9 +211,9 @@ button {
     background: none;
 }
 
-/* ========================================
+/* 
    LAYOUT UTILITIES
-   ======================================== */
+  */
 .container {
     width: 100%;
     max-width: var(--container-xl);
@@ -257,9 +249,9 @@ button {
     padding: var(--space-32) 0;
 }
 
-/* ========================================
+/*
    HEADER & NAVIGATION
-   ======================================== */
+    */
 header {
     position: fixed;
     top: 0;
@@ -398,9 +390,9 @@ header.scrolled {
     transition: all var(--transition-base);
 }
 
-/* ========================================
+/* 
    HERO SECTION
-   ======================================== */
+   */
 .hero {
     min-height: 100vh;
     display: flex;
@@ -658,9 +650,9 @@ header.scrolled {
     background: rgba(245, 158, 11, 0.05);
 }
 
-/* ========================================
+/* 
    SECTION HEADERS
-   ======================================== */
+    */
 .header-group {
     text-align: center;
     margin-bottom: var(--space-16);
@@ -718,9 +710,9 @@ header.scrolled {
     transform: none;
 }
 
-/* ========================================
+/*
    SERVICES SECTION
-   ======================================== */
+    */
 #services {
     position: relative;
     background: var(--color-dark);
@@ -888,9 +880,9 @@ header.scrolled {
     transform: translateX(4px);
 }
 
-/* ========================================
+/* 
    ABOUT SECTION
-   ======================================== */
+  */
 .dark-bg {
     position: relative;
     background: linear-gradient(180deg, var(--color-dark-elevated) 0%, var(--color-dark) 100%);
@@ -1323,9 +1315,9 @@ header.scrolled {
     transform: translateY(-1px);
 }
 
-/* ========================================
+/* 
    FOOTER
-   ======================================== */
+    */
 footer {
     position: relative;
     background: var(--color-dark-elevated);
@@ -1393,9 +1385,9 @@ footer {
     transform: translateY(-2px);
 }
 
-/* ========================================
+/* 
    RESPONSIVE DESIGN
-   ======================================== */
+   */
 
 /* Large Screens */
 @media (max-width: 1200px) {
@@ -1566,9 +1558,9 @@ footer {
     }
 }
 
-/* ========================================
+/* 
    ANIMATIONS
-   ======================================== */
+   */
 
 /* Fade In Up */
 @keyframes fadeInUp {
@@ -1665,9 +1657,9 @@ footer {
     transform: translateY(0);
 }
 
-/* ========================================
+/* 
    SCROLLBAR STYLING
-   ======================================== */
+   = */
 ::-webkit-scrollbar {
     width: 10px;
     height: 10px;
@@ -1693,9 +1685,9 @@ footer {
     scrollbar-color: var(--color-dark-lighter) var(--color-dark);
 }
 
-/* ========================================
+/*
    UTILITY CLASSES
-   ======================================== */
+*/
 .text-gradient {
     background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
     -webkit-background-clip: text;
