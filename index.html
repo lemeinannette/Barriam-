@@ -3,122 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Barriam Electricals | Professional Electrical & Solar</title>
+    <title>Barriam Electricals | Professional Solutions</title>
     <link rel="stylesheet" href="index.css">
     <link href="https://fonts.googleapis.com" rel="stylesheet">
 </head>
 <body>
 
-    <!-- 1. Header -->
     <header>
-        <div class="logo-area">
-            <h1>Barriam Electricals</h1>
-            <p class="tagline">Powering Homes, Businesses, and Farms with Reliable Electrical Solutions.</p>
+        <div class="container header-flex">
+            <div class="logo">
+                BARRIAM <span class="accent-text">ELECTRICALS</span>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
     </header>
 
-    <!-- 2. Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Your Trusted Electrical & Solar Installation Partner</h1>
-            <p>Barriam Electricals provides professional electrical wiring, solar installations, motor setup, and maintenance services for homes, businesses, and agricultural needs.</p>
-            <a href="#contact" class="btn">Request a Service</a>
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <p class="hero-subtitle">ESTABLISHED 2026</p>
+                <h1>Reliable Electrical & Solar <br><span>Installation Partner.</span></h1>
+                <p class="hero-description">Professional wiring, solar installations, and motor maintenance for modern homes, industrial farms, and growing businesses.</p>
+                <div class="hero-actions">
+                    <a href="#contact" class="btn btn-filled">Request Service</a>
+                    <a href="#services" class="btn btn-outline">View Portfolio</a>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- 3. Services Section -->
     <section id="services" class="services">
-        <h2 class="section-title">Our Services</h2>
-        <div class="service-grid">
-            <div class="service-card">
-                <h3> Electrical Installation</h3>
-                <ul>
-                    <li>Domestic house wiring</li>
-                    <li>Socket & lighting installation</li>
-                    <li>Distribution board (DB) setup</li>
-                </ul>
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Expertise</h2>
+                <div class="header-line"></div>
             </div>
-            <div class="service-card">
-                <h3> Solar PV Installation</h3>
-                <ul>
-                    <li>Solar home systems & lighting</li>
-                    <li>Inverter & battery installation</li>
-                    <li>Solar water pumping</li>
-                    <li>Maintenance & troubleshooting</li>
-                </ul>
-            </div>
-            <div class="service-card">
-                <h3> Motor Installation</h3>
-                <ul>
-                    <li>Single & three-phase motors</li>
-                    <li>Water pumps & industrial setup</li>
-                    <li>Motor starters (DOL, Star-Delta)</li>
-                </ul>
-            </div>
-            <div class="service-card">
-                <h3>Repairs & Maintenance</h3>
-                <ul>
-                    <li>Electrical appliance repair</li>
-                    <li>Fault finding</li>
-                    <li>Preventive maintenance</li>
-                    <li>Emergency services</li>
-                </ul>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <span class="card-number">01</span>
+                    <h3>Electrical & Wiring</h3>
+                    <p>Domestic house wiring, socket installations, and distribution board setups.</p>
+                </div>
+                <div class="service-card">
+                    <span class="card-number">02</span>
+                    <h3>Solar PV Systems</h3>
+                    <p>Inverter systems, solar water pumping, and sustainable home energy solutions.</p>
+                </div>
+                <div class="service-card">
+                    <span class="card-number">03</span>
+                    <h3>Motor Installation</h3>
+                    <p>Three-phase motors, industrial water pumps, and VFD maintenance.</p>
+                </div>
+                <div class="service-card">
+                    <span class="card-number">04</span>
+                    <h3>Maintenance</h3>
+                    <p>Fault finding, appliance repair, and 24/7 emergency electrical services.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- 4 & 5. About Us & Target Audience -->
-    <section id="about" class="about">
-        <div class="about-container">
-            <div class="about-text">
-                <h2>About Us</h2>
-                <p>Barriam Electricals is committed to delivering safe, efficient, and high-quality electrical services. We serve homeowners, businesses, and agricultural clients with reliable solutions tailored to their needs.</p>
-            </div>
-            <div class="audience">
-                <h3>Who We Serve</h3>
-                <ul>
-                    <li>Homeowners needing wiring and repairs</li>
-                    <li>Small businesses and institutions</li>
-                    <li>Farmers requiring solar and motor installations</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- 6. Why Choose Us -->
-    <section class="why-us">
-        <h2>Why Choose Us</h2>
-        <div class="benefits-flex">
-            <div class="benefit"><strong>✓ Reliable</strong> Electrical Services</div>
-            <div class="benefit"><strong>✓ Honest</strong> Service Information</div>
-            <div class="benefit"><strong>✓ Quick</strong> Response Times</div>
-            <div class="benefit"><strong>✓ Quality</strong> Workmanship</div>
-        </div>
-    </section>
-
-    <!-- 7. Contact Section -->
-    <section id="contact" class="contact">
-        <h2>Contact Us Today</h2>
-        <div class="contact-details">
-            <p> Serving local communities</p>
-            <p>Phone: +254 700 000 000</p>
-            <p>Email: info@barriamelectricals.com</p>
-            <p>Hours: Mon - Sat, 8:00 AM - 6:00 PM</p>
-            <p>WhatsApp: +254 700 000 000</p>
-        </div>
-    </section>
-
-    <!-- 8. Footer -->
     <footer>
-        <p>&copy; 2026 Barriam Electricals. All rights reserved.</p>
+        <div class="container">
+            <div class="footer-flex">
+                <div>
+                    <p class="footer-logo">BARRIAM</p>
+                    <p>© 2026 All Rights Reserved.</p>
+                </div>
+                <div class="footer-contact">
+                    <p>info@barriam.com</p>
+                    <p>Connect Today</p>
+                </div>
+            </div>
+        </div>
     </footer>
 
 </body>
