@@ -1,89 +1,131 @@
-// index.js - Smooth Scrolling and Active Navigation
+document.addEventListener('DOMContentLoaded', () => {
 
-document.addEventListener('DOMContentLoaded', function() {
-    
-    // 1. SMOOTH SCROLLING FOR NAVIGATION LINKS
-    const navLinks = document.querySelectorAll('.main-nav a[href^="#"]');
-    
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault(); // Prevent the default instant jump
-            
-            const targetId = this.getAttribute('href').substring(1);
-            const targetSection = document.getElementById(targetId);
-            
-            if (targetSection) {
-                // Smooth scroll to the target section
-                targetSection.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
+    // - FAQ ACCORDION 
+    const faqItems = document.querySelectorAll('.faq-item');
+    if (faqItems.length > 0) {
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                const answer = item.querySelector('.faq-answer');
+                const icon = item.querySelector('.faq-question i');
+                
+                // Close all other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                        const otherAnswer = otherItem.querySelector('.faq-answer');
+                        const otherIcon = otherItem.querySelector('.faq-question i');
+                        if (otherAnswer) otherAnswer.style.maxHeight = '0';
+                        if (otherIcon) otherIcon.style.transform = 'rotate(0deg)';
+                    }
                 });
-                
-                // Update the browser's URL without a page reload
-                window.history.pushState(null, null, this.getAttribute('href'));
-            }
-        });
-    });
 
-    // 2. HIGHLIGHT THE ACTIVE NAVIGATION LINK ON SCROLL
-    function updateActiveNav() {
-        const sections = document.querySelectorAll('section[id]');
-        const scrollPos = window.scrollY + 150; // 150px offset from the top
-
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.offsetHeight;
-            const sectionId = section.getAttribute('id');
-            
-            // Check if the user has scrolled into the current section
-            if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
-                // Remove the 'active' class from all navigation links
-                navLinks.forEach(link => link.classList.remove('active'));
-                
-                // Add the 'active' class to the link corresponding to the current section
-                const activeLink = document.querySelector(`.main-nav a[href="#${sectionId}"]`);
-                if (activeLink) {
-                    activeLink.classList.add('active');
+                // Toggle current item
+                if (isActive) {
+                    item.classList.remove('active');
+                    answer.style.maxHeight = '0';
+                    icon.style.transform = 'rotate(0deg)';
+                } else {
+                    item.classList.add('active');
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                    icon.style.transform = 'rotate(180deg)';
                 }
-            }
+            });
         });
     }
 
-    // Listen for scroll events to update the active navigation
-    window.addEventListener('scroll', updateActiveNav);
-    
-    // Call the function once on page load to set the initial active state
-    updateActiveNav();
+    //  SMOOTH SCROLL & ACTIVE NAV 
+    const navLinks = document.querySelectorAll('.main-nav a');
+    const sections = document.querySelectorAll('section[id]');
 
-    // 3. SIMPLE FORM SUBMISSION HANDLER
+    if (navLinks.length > 0 && sections.length > 0) {
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                if (targetSection) {
+                    const headerOffset = 80;
+                    const elementPosition = targetSection.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                }
+            });
+        });
+
+        const updateActiveNavLink = () => {
+            const scrollY = window.pageYOffset;
+            sections.forEach(current => {
+                const sectionHeight = current.offsetHeight;
+                const sectionTop = current.offsetTop - 100;
+                const sectionId = current.getAttribute('id');
+                const correspondingNavLink = document.querySelector(`.main-nav a[href="#${sectionId}"]`);
+                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    if (correspondingNavLink) correspondingNavLink.classList.add('active');
+                }
+            });
+        };
+        window.addEventListener('scroll', updateActiveNavLink);
+        updateActiveNavLink(); 
+    }
+
+
+    //  MOBILE MENU 
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const mainNav = document.querySelector('.main-nav');
+    if (mobileMenuBtn && mainNav) {
+        mobileMenuBtn.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+            mobileMenuBtn.classList.toggle('active');
+        });
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (mainNav.classList.contains('active')) {
+                    mainNav.classList.remove('active');
+                    mobileMenuBtn.classList.remove('active');
+                }
+            });
+        });
+    }
+
+
+    //  FORM SUBMISSION 
     const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
+    const formMessage = document.getElementById('formMessage');
+
+    if (contactForm && formMessage) {
         contactForm.addEventListener('submit', function(e) {
-            e.preventDefault(); // Prevent default form submission
+            e.preventDefault();
             
-            // You can add more complex form handling here (like sending to an email service)
-            // For now, we'll just show a success message.
             const submitButton = this.querySelector('button[type="submit"]');
-            const originalText = submitButton.innerHTML;
-            
+            const originalButtonText = submitButton.innerHTML;
+
             // Show loading state
-            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
             submitButton.disabled = true;
-            
-            // Simulate a network request
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+
+            // Simulate sending to a server
             setTimeout(() => {
                 // Show success state
-                submitButton.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+                formMessage.textContent = 'Thank you! Your message has been sent.';
+                formMessage.style.display = 'block';
+                formMessage.style.color = '#28a745'; 
                 
-                // Reset form
+                
                 this.reset();
+                submitButton.innerHTML = '<i class="fas fa-check"></i> Sent!';
+                submitButton.disabled = false;
+
                 
-                // Reset button after a few seconds
                 setTimeout(() => {
-                    submitButton.innerHTML = originalText;
-                    submitButton.disabled = false;
-                }, 3000);
-            }, 1500);
+                    formMessage.style.display = 'none';
+                    submitButton.innerHTML = originalButtonText;
+                }, 5000);
+
+            }, 1500); 
         });
     }
+
 });
