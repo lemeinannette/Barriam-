@@ -472,49 +472,8 @@
         </div>
     </footer>
 
-    <script>
-        // Smooth scroll function
-        function scrollToSection(sectionId) {
-            const section = document.getElementById(sectionId);
-            if (section) {
-                section.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-
-        // Add animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
-                }
-            });
-        }, observerOptions);
-
-        // Observe all sections
-        document.querySelectorAll('section').forEach(section => {
-            observer.observe(section);
-        });
-
-        // Form submission
-        document.querySelector('form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your message! We will contact you soon.');
-            this.reset();
-        });
-
-        // Dynamic year
-        document.addEventListener('DOMContentLoaded', function() {
-            const year = new Date().getFullYear();
-            const footerText = document.querySelector('.footer-bottom p');
-            if (footerText) {
-                footerText.innerHTML = footerText.innerHTML.replace('2024', year);
-            }
-        });
-    </script>
+    <script></script>
+        
+    
 </body>
 </html>
