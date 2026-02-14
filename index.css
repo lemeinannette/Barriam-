@@ -1,4 +1,4 @@
-/* Reset and Base Styles */
+
 * {
     margin: 0;
     padding: 0;
@@ -104,7 +104,7 @@ body {
 }
 
 .main-nav {
-    /* For desktop */
+   
 }
 
 .main-nav ul {
@@ -165,7 +165,7 @@ body {
 
 /* --- Mobile Menu --- */
 .mobile-menu-btn {
-    display: none; /* Hidden on desktop */
+    display: none;
     flex-direction: column;
     justify-content: space-around;
     width: 30px;
@@ -215,7 +215,8 @@ body {
     right: 0;
     bottom: 0;
     background: linear-gradient(135deg, rgba(30, 58, 138, 0.95), rgba(59, 130, 246, 0.95)),
-                url('https://picsum.photos/seed/modern-electrical-background/1920/1080.jpg');
+                /* --- UPDATED IMAGE --- */
+                url('https://picsum.photos/seed/professional-electrical-engineer/1920/1080.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -298,7 +299,7 @@ body {
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
-    display: inline-flex; /* Use inline-flex */
+    display: inline-flex;
     align-items: center;
     gap: 10px;
     text-decoration: none;
@@ -319,7 +320,7 @@ body {
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    display: inline-flex; /* Use inline-flex */
+    display: inline-flex;
     align-items: center;
     gap: 10px;
     backdrop-filter: blur(10px);
@@ -770,7 +771,7 @@ body {
 /* --- FAQ Section --- */
 .faq-section {
     padding: 100px 0;
-    background-color: #f8f9fa;
+    background-color: #f8f9fa; 
 }
 
 .faq-grid {
@@ -990,7 +991,7 @@ body {
 
 /* Form Message Styling */
 #formMessage {
-    display: none; /* Hidden by default */
+    display: none; 
     padding: 15px;
     margin-top: 20px;
     border-radius: 10px;
@@ -1155,16 +1156,16 @@ body {
 }
 
 @media (max-width: 768px) {
-    /* Show mobile menu button */
+    
     .mobile-menu-btn {
         display: flex;
     }
 
-    /* Hide desktop nav and phone button */
+    
     .main-nav {
         position: fixed;
         top: 0;
-        right: -100%; /* Start off-screen */
+        right: -100%; 
         width: 80%;
         max-width: 300px;
         height: 100vh;
@@ -1176,7 +1177,7 @@ body {
     }
 
     .main-nav.active {
-        right: 0; /* Slide in */
+        right: 0; 
     }
 
     .main-nav ul {
@@ -1190,7 +1191,7 @@ body {
     }
 
     .phone-btn {
-        display: none; /* Hide on mobile */
+        display: none; 
     }
 
     .hero-title {
